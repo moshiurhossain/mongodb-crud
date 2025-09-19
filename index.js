@@ -4,6 +4,8 @@ const { default: mongoose } = require('mongoose')
 const app = express()
 const port = 8000
 
+// config express to json
+app.use(express.json())
 //  using route
 app.use(route)
 // connecting db
