@@ -1,3 +1,5 @@
+const authModel = require("../models/authModel")
+
 const register_controller =(req,res)=>{
     try{
     const {userName,email,password}=req.body
@@ -5,6 +7,12 @@ const register_controller =(req,res)=>{
     if(!userName) return res.status(404).send('username is required')
     if(!email) return res.status(404).send('email is required')
     if(!password) return res.status(404).send('password is required')
+
+
+        new authModel({
+             userName,email,password
+        }).save()
+    
 
         res.status(200).send('register successful')
     }
